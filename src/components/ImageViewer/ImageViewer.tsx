@@ -55,9 +55,10 @@ const Information = styled.p`
 type ImageViewerProps = {
   customerId: string
   productId: string
+  speed: number
 }
 
-const ImageViewer = ({ customerId, productId }: ImageViewerProps) => {
+const ImageViewer = ({ customerId, productId, speed }: ImageViewerProps) => {
   const [panView, setPanView] = useState(false)
   const [rotateState, setRotateState] = useState({
     allowRotate: true,
@@ -90,7 +91,7 @@ const ImageViewer = ({ customerId, productId }: ImageViewerProps) => {
     const handleMouseMove = (event: MouseEvent) => {
       if (!panView && rotateState.rotating) {
         const delta = event.screenX - rotateState.screenX
-        const isIncrement = delta % 2 === 0
+        const isIncrement = delta % speed === 0
         let frame = delta > 0 ? rotateState.frame + 1 : rotateState.frame - 1
 
         if ((rotateState.frame === 32 && delta > 0) || rotateState.frame <= 0) {

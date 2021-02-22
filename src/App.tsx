@@ -14,7 +14,7 @@ const Wrapper = styled.main`
 function App() {
   return (
     <Wrapper>
-      <ImageViewer customerId="4404" productId="ARCHIBALDCHAIR" />
+      <ImageViewer customerId="4404" productId="ARCHIBALDCHAIR" speed={2} />
     </Wrapper>
   )
 }
