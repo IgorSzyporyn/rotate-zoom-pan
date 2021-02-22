@@ -119,7 +119,7 @@ const ImageViewer = ({ customerId, productId, speed }: ImageViewerProps) => {
       document.removeEventListener("mousemove", handleMouseMove, false)
       document.removeEventListener("mouseup", handleMouseUp, false)
     }
-  }, [setRotateState, rotateState, panView])
+  }, [setRotateState, rotateState, panView, speed])
 
   return (
     <Wrapper>
