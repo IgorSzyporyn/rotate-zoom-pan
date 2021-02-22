@@ -8,6 +8,7 @@ const Wrapper = styled.main`
   min-height: 100%;
   justify-content: center;
   align-items: center;
+  user-select: none;
 `
 
 function App() {
