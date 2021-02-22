@@ -165,7 +165,7 @@ const ImageViewer = ({ customerId, productId }: ImageViewerProps) => {
           )
         })}
       </Presenter>
-      <Information>Click to Rotate - Drag to Zoom</Information>
+      <Information>Drag to Rotate - Click to Zoom</Information>
     </Wrapper>
   )
 }
