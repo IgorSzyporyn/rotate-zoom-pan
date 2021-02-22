@@ -18,12 +18,19 @@ const Wrapper = styled.section`
   justify-content: center;
   flex-direction: column;
 `
-const Presenter = styled.ul`
+
+type PresenterProps = {
+  rotating: boolean
+}
+
+const Presenter = styled.ul<PresenterProps>`
   margin: 0;
   padding: 0;
   list-style: none;
   position: relative;
-  cursor: pointer;
+  height: 560px;
+  width: 560px;
+  cursor: ${({ rotating }) => (rotating ? "grab" : "pointer")};
 `
 
 const Frame = styled.li``
@@ -94,6 +101,10 @@ const ImageViewer = ({ customerId, productId }: ImageViewerProps) => {
           frame = 32
         }
 
+        if (rotateState.frame <= 0) {
+          frame = 1
+        }
+
         if (isIncrement) {
           setRotateState({
             ...rotateState,
@@ -115,7 +126,7 @@ const ImageViewer = ({ customerId, productId }: ImageViewerProps) => {
 
   return (
     <Wrapper>
-      <Presenter onMouseDown={handleMouseDown}>
+      <Presenter onMouseDown={handleMouseDown} rotating={rotateState.rotating}>
         {frames.map((i) => {
           const frame = i + 1
           const imageSource = getProductImageUrl({
