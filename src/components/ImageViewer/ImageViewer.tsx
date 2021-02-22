@@ -90,7 +90,7 @@ const ImageViewer = ({ customerId, productId }: ImageViewerProps) => {
     const handleMouseMove = (event: MouseEvent) => {
       if (!panView && rotateState.rotating) {
         const delta = event.screenX - rotateState.screenX
-        const isIncrement = delta % 10 === 0
+        const isIncrement = delta % 2 === 0
         let frame = delta > 0 ? rotateState.frame + 1 : rotateState.frame - 1
 
         if ((rotateState.frame === 32 && delta > 0) || rotateState.frame <= 0) {
